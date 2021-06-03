@@ -37,18 +37,19 @@ public class ValidateUser {
 			x.useDelimiter("[,\n]");
 			
 			while (x.hasNext() && !found) {
-				tempUsername = x.next();
-				tempPassword = x.next();
-				role = x.next();
+				tempUsername = x.next().trim();
+				tempPassword = x.next().trim();
+				role = x.next().trim();
 				
-				if (tempUsername.trim().equals(username.trim()) && tempPassword.trim().equals(password.trim())) {
+				if (tempUsername.equals(username.trim()) && tempPassword.equals(password.trim())) {
 					found = true;
 					empLevel = role;
 				}
 			}
 			x.close();
-			if (found)
-				System.out.println("You are Logged in Successfully");
+			if (found) {
+				System.out.println("| Logged in as " + role.trim() + " |");
+			}
 			else {
 				System.out.println("Login Failed");
 				System.out.println("-------------------------------");
