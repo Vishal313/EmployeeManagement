@@ -9,9 +9,12 @@ public class Backup extends TimerTask{
 	}
 
 	public void run() {
+		String curr = (System.currentTimeMillis()/1000) + "";
+		// Unix time amount of milliseconds passed since Epoch time, 00:00:00 on 1 January 1970.
+	
 		try {
 			File sourceFile = new File("data/up.txt");
-			File destinationFile = new File("backup/" + sourceFile.getName());
+			File destinationFile = new File("backup/" + curr + "_" + sourceFile.getName());
 	
 			FileInputStream fileInputStream = new FileInputStream(sourceFile);
 			FileOutputStream fileOutputStream = new FileOutputStream(destinationFile);

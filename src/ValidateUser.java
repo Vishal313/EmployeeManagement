@@ -24,7 +24,6 @@ public class ValidateUser {
 			password = getMd5(password);
 			login = verifyLogin(username, password, filepath);
 		}
-		sc.close();
 	}
 	
 	public static boolean verifyLogin(String username, String password, String filepath) {
