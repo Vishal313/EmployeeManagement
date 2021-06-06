@@ -10,25 +10,33 @@ public class Employee implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	public String emp_name;
-	public int emp_id;
 	public String emp_designation;
+	public int emp_id;
+	public int tl_id;
+	public int manager_id;
 	
 	Employee() {
 		
 	};
 	
-	Employee(String emp_name, int emp_id, String emp_designation) {
+	public Employee(String emp_name, String emp_designation, int emp_id, int tl_id, int manager_id) {
+		super();
 		this.emp_name = emp_name;
-		this.emp_id = emp_id;
 		this.emp_designation = emp_designation;
+		this.emp_id = emp_id;
+		this.tl_id = tl_id;
+		this.manager_id = manager_id;
 	}
-	
+
+
+
 	@Override
 	public String toString() {
 		return "Name: " + emp_name + "\nID: " + emp_id + "\nDesignation: " + emp_designation + '\n'; 
 	}
 
 	public void setPassword(){
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Set Up User Name and Password for New Employee");
 		System.out.print("Enter Username: ");

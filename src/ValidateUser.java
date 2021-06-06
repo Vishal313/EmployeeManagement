@@ -7,8 +7,10 @@ import java.security.NoSuchAlgorithmException;
 public class ValidateUser {
 	private static Scanner x;
 	public static String empLevel = "";
+	public static String name = "";
 	
 	public ValidateUser() {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		
 		boolean login = true;
@@ -43,6 +45,7 @@ public class ValidateUser {
 				if (tempUsername.equals(username.trim()) && tempPassword.equals(password.trim())) {
 					found = true;
 					empLevel = role;
+					name = tempUsername;
 				}
 			}
 			x.close();

@@ -13,7 +13,7 @@ public class Backup extends TimerTask{
 		// Unix time amount of milliseconds passed since Epoch time, 00:00:00 on 1 January 1970.
 	
 		try {
-			File sourceFile = new File("data/up.txt");
+			File sourceFile = new File("data/Employee.txt");
 			File destinationFile = new File("backup/" + curr + "_" + sourceFile.getName());
 	
 			FileInputStream fileInputStream = new FileInputStream(sourceFile);
