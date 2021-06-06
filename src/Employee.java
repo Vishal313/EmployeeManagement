@@ -1,4 +1,9 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Serializable;
+import java.io.Writer;
+import java.util.Scanner;
 
 public class Employee implements Serializable{
 	
@@ -23,4 +28,23 @@ public class Employee implements Serializable{
 		return "Name: " + emp_name + "\nID: " + emp_id + "\nDesignation: " + emp_designation + '\n'; 
 	}
 
+	public void setPassword(){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Set Up User Name and Password for New Employee");
+		System.out.print("Enter Username: ");
+		String username = sc.nextLine();
+		System.out.print("Enter Password: ");
+		String password = sc.nextLine();
+		String hashedPassword = ValidateUser.getMd5(password);
+		
+		 
+		try {
+			Writer output = new BufferedWriter(new FileWriter("data/up.txt", true));
+			output.append("\n" + username + "," + hashedPassword + "," + emp_designation);
+			output.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
